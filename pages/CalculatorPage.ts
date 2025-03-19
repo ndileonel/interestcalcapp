@@ -55,6 +55,13 @@ export class CalculatorPage {
         await this.calculateButton.click();
     }
 
+    async calculateInterestWithNoConsent(principal: string, rate: string, duration: string) {
+        await this.selectPrincipalSliderValue(parseInt(principal));
+        await this.selectInterestRate(rate);
+        await this.selectDuration(duration);
+        await this.calculateButton.click();
+    }
+
     async getCalculatedInterest(): Promise<string> {
         return this.calculatedInterest.innerText();
     }
