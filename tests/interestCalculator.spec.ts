@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { CalculatorPage } from '../pages/CalculatorPage';
 import { LoginPage } from '../pages/LoginPage';
-import { Duration } from './utils/duration';
+import { Duration } from '../utils/duration';
 
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
