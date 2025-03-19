@@ -47,19 +47,19 @@ export class CalculatorPage {
         await this.consent.click({ force: true });
     }
 
+    async selectCaclulateButton() {
+        await this.calculateButton.click();
+    }
+
     async calculateInterest(principal: string, rate: string, duration: string) {
         await this.selectPrincipalSliderValue(parseInt(principal));
         await this.selectInterestRate(rate);
         await this.selectDuration(duration);
-        await this.acceptConsent();
-        await this.calculateButton.click();
     }
 
-    async calculateInterestWithNoConsent(principal: string, rate: string, duration: string) {
+    async calculateInterestWithNoRateSelected(principal: string, duration: string) {
         await this.selectPrincipalSliderValue(parseInt(principal));
-        await this.selectInterestRate(rate);
         await this.selectDuration(duration);
-        await this.calculateButton.click();
     }
 
     async getCalculatedInterest(): Promise<string> {
