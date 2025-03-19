@@ -24,7 +24,7 @@ export class CalculatorPage {
     async selectPrincipalSliderValue(value: number) {
         await this.principalAmount.evaluate((slider, newValue) => {
             const inputElement = slider as HTMLInputElement;
-            inputElement.value = String(newValue); // Set new value
+            inputElement.value = String(newValue); 
             inputElement.dispatchEvent(new Event('input', { bubbles: true }));
             inputElement.dispatchEvent(new Event('change', { bubbles: true }));
         }, value);
@@ -34,6 +34,7 @@ export class CalculatorPage {
         await this.interestRate.click();
         const checkboxLocator = this.page.locator(`div.dropdown-item:has-text("${value}%") input[type="checkbox"]`);
         await checkboxLocator.check();
+        // click outside the checkbox to close the dropdown
         const outerCheckboxLocator = this.page.locator(`div.dropdown-item:has-text("${value}%")`);
         await outerCheckboxLocator.click();
     }
